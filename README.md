@@ -76,6 +76,46 @@ http://127.0.0.1:3000
 
 這將顯示一個簡單的前端界面，您可以點擊按鈕來執行不同的 Shell 指令，並查看其結果。
 
+## 程式碼結構與使用技術
+
+### 程式碼結構
+
+此專案主要由以下幾個部分組成：
+
+- **前端 (HTML, CSS, JavaScript)**：
+
+  - `public/index.html`：包含基本的 HTML 結構，設置介面和按鈕來觸發 Shell 指令。
+  - `public/style.css`：用於設計簡單的介面樣式。
+  - `public/script.js`：主要的 JavaScript 程式碼，用來處理前端與後端之間的互動，利用 `fetch` 發送請求並顯示結果。
+
+- **後端 (Node.js, Express)**：
+  - `index.js`：設置 Express 伺服器來處理請求，並通過 `child_process` 模組來執行 Shell 指令。
+
+---
+
+### 使用技術
+
+- **HTML**：
+  用於構建頁面的基本結構，展示按鈕和結果區域。
+
+- **CSS**：
+  用於設計簡單的頁面樣式，使介面更具可讀性和吸引力。
+
+- **JavaScript**：
+  用於實現前端與後端的互動。當用戶在頁面上點擊執行指令的按鈕時，JavaScript 會發送 `fetch` 請求到後端。
+
+- **Fetch (AJAX)**：
+  用於與後端進行非同步通信，發送請求並獲取 Shell 指令的執行結果。這使得頁面無需重新加載即可顯示執行結果。
+
+- **Node.js**：
+  基於 Chrome V8 引擎的 JavaScript 運行環境，用於後端執行 JavaScript。此專案利用 Node.js 來啟動伺服器並處理請求。
+
+- **Express**：
+  用於快速構建 Node.js 伺服器的框架，負責處理從前端發送的請求，並執行 Shell 指令。
+
+- **Child Process**：
+  是 Node.js 內建的模組，用於執行外部命令（如 Shell 指令）並捕獲其輸出。在這個專案中，它用來執行 Shell 指令並將結果傳回前端。
+
 ## 未來擴展
 
 - 撰寫 Shell 腳本：
@@ -103,30 +143,37 @@ http://127.0.0.1:3000
 以下是一些與專案相關的參考資源，可以進一步學習並擴展這個專案：
 
 1. **Node.js 官方網站**：
+
    - [https://nodejs.org/](https://nodejs.org/)
    - 提供 Node.js 的安裝、文檔以及教學資源。
 
 2. **Node.js `child_process` 模組**：
+
    - [https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html)
    - 這個模組允許 Node.js 程式執行外部命令，您可以參考這裡的 API 文檔來進行更多高級操作。
 
 3. **Node.js `fs`（檔案系統）模組**：
+
    - [https://nodejs.org/dist/latest-v16.x/docs/api/fs.html](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
    - `fs` 模組可以用來讀取、寫入、刪除檔案及目錄，這對於管理腳本檔案等用途非常有用。
 
 4. **JavaScript 基本語法**：
+
    - [MDN JavaScript 指南](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide)
    - 提供 JavaScript 語法、結構、函數、物件等詳細介紹，非常適合學習和參考。
 
 5. **MDN `fetch` API**：
+
    - [https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API](https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API)
    - `fetch` API 是用來發送網絡請求的現代 JavaScript API，適用於與後端服務進行交互。
 
 6. **StackOverflow - Wrong encoding when using child_process spawn or exec under Windows**：
+
    - [https://stackoverflow.com/questions/20731785/wrong-encoding-when-using-child-process-spawn-or-exec-under-windows](https://stackoverflow.com/questions/20731785/wrong-encoding-when-using-child-process-spawn-or-exec-under-windows)
    - 關於在 Windows 環境下處理 `child_process` 模組的編碼問題，這是一個常見的問題，適合參考解決方案。
 
 7. **Linux `echo` 命令**：
+
    - [https://man7.org/linux/man-pages/man1/echo.1.html](https://man7.org/linux/man-pages/man1/echo.1.html)
    - 用於在 Linux 系統中輸出文字的命令，常用於創建檔案或顯示訊息。
 
